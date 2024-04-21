@@ -90,6 +90,11 @@ public class PlayerTopDown : MonoBehaviour
         {
             StartCoroutine(HealthCoolDown(collision.collider.GetComponent<Enemy>().damage));
         }
+
+        if(!healthCooldown && collision.collider.GetComponent<EnemyBullet>())
+        {
+            StartCoroutine(HealthCoolDown(collision.collider.GetComponent<EnemyBullet>().damage));
+        }
     }
 }
 

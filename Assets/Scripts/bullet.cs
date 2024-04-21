@@ -27,9 +27,15 @@ public class bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
 
+            // For Melee Enemies
             if(collision.GetComponent<Enemy>())
             {
                 collision.GetComponent<Enemy>().health -= damage;
+            }
+            // For Ranged Enemies
+            if(collision.GetComponent<RangedEnemy>())
+            {
+                collision.GetComponent<RangedEnemy>().health -= damage;
             }
         }
                     
