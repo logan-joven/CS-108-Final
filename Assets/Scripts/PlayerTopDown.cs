@@ -84,16 +84,12 @@ public class PlayerTopDown : MonoBehaviour
         healthCooldown = false;
     }
 
+    // Upon Colliding w/ an Melee Enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!healthCooldown && collision.collider.GetComponent<Enemy>())
         {
             StartCoroutine(HealthCoolDown(collision.collider.GetComponent<Enemy>().damage));
-        }
-
-        if(!healthCooldown && collision.collider.GetComponent<EnemyBullet>())
-        {
-            StartCoroutine(HealthCoolDown(collision.collider.GetComponent<EnemyBullet>().damage));
         }
     }
 }
