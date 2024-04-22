@@ -37,6 +37,11 @@ public class bullet : MonoBehaviour
             {
                 collision.GetComponent<RangedEnemy>().health -= damage;
             }
+            // For Ranged Enemy Body
+            if(collision.GetComponent<RangedEnemyBody>())
+            {
+                 collision.GetComponent<RangedEnemyBody>().health -= damage;
+            }
         }
                     
     }
