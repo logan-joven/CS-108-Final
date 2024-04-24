@@ -11,6 +11,9 @@ public class RangedEnemyHead: MonoBehaviour{
     public float startShotCooldown;
     public GameObject EnemyBullet;
 
+    // Animator
+    public Animator animator;
+
     Transform target;
 
      private void Awake()
@@ -33,8 +36,10 @@ public class RangedEnemyHead: MonoBehaviour{
         if(shotCooldown <= 0 && Vector2.Distance(target.position, transform.position) <= distanceToShoot){
             Instantiate(EnemyBullet, transform.position, transform.rotation);
             shotCooldown = startShotCooldown;
+            animator.SetFloat("SetFire",1);
         } else{
             shotCooldown -= Time.deltaTime;
+            animator.SetFloat("SetFire", 0);
         }
     }
 }
