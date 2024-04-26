@@ -7,8 +7,12 @@ public class PlayerTopDown : MonoBehaviour
 {
 
     // Movement variables
-    public float walkSpeed = 4f;
+    public float maxSpeed = 100f;
+    public Rigidbody2D rb;
     Vector2 movementInput;
+
+    // Aiming Variables
+    public float rotationSpeed = 100f;
 
     // Bullet Variables
     float fireGun;
@@ -24,43 +28,40 @@ public class PlayerTopDown : MonoBehaviour
     public float healthDamageCooldown = 1.5f;
 
 
-    
-
-    // set the direction of Player model
-    bool directionLeft { get { 
-            
-            if(shotDir.x < 0) return true; 
-            else return false;
-    }}
-
-
-    private void FixedUpdate()
+    private void Awake()
     {
-        // movement for wasd arrows and joystick1 - Fire1 is Space & A button
-        movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        fireGun = Input.GetAxisRaw("Fire1");
+        rb = GetComponentInParent<Rigidbody2D>();
+    }
 
+    private void Update()
+    {
         // Fire bullet
         if (fireGun != 0 && !shotCooldown)
         {
             StartCoroutine(FireShot1());
         }
 
-
-        transform.Translate(movementInput.normalized * walkSpeed * Time.deltaTime);
-
-
-
-        // converts movement points to ints so the bullets have correct spawn point
-        if (movementInput != Vector2.zero) shotDir = new Vector2(Mathf.CeilToInt(movementInput.x), Mathf.CeilToInt(movementInput.y));
-        GetComponent<SpriteRenderer>().flipX = directionLeft;
-
-
-        if(health <= 0)
+        // Check if player is dead
+        if (health <= 0)
         {
             Debug.Log("Player Dead");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+
+
+    private void FixedUpdate()
+    {
+        // movement for wasd arrows and joystick1 - Fire1 is Space & A button
+        movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        movementInput.Normalize();
+        fireGun = Input.GetAxisRaw("Fire1");
+
+
+        rb.velocity = (Vector2)transform.up * maxSpeed * movementInput.y * Time.fixedDeltaTime;
+        rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementInput.x * rotationSpeed * Time.fixedDeltaTime));
+
     }
 
 
