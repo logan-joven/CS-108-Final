@@ -21,6 +21,8 @@ public class PlayerTopDown : MonoBehaviour
     [SerializeField] GameObject bulletPrefab; 
     Vector2 shotDir = Vector2.right; // Sets the direction to fire bullet
 
+    // Animator
+    public Animator animator;
 
     // Health Variables
     bool healthCooldown;
@@ -61,6 +63,14 @@ public class PlayerTopDown : MonoBehaviour
 
         rb.velocity = (Vector2)transform.up * maxSpeed * movementInput.y * Time.fixedDeltaTime;
         rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementInput.x * rotationSpeed * Time.fixedDeltaTime));
+        
+        if(Vector2.Distance(rb.velocity, transform.position) > 0){
+            animator.SetFloat("Speed",1);
+        } 
+        else{
+            animator.SetFloat("Speed",-1);
+        }
+        
 
     }
 

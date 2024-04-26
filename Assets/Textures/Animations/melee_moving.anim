@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: treads_moving
+  m_Name: melee_moving
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: a70852da92c0fe845b1c5cf074462661, type: 3}
-    - time: 0.36666667
-      value: {fileID: 21300000, guid: df14a0ade34216a44951d4249717dace, type: 3}
-    - time: 0.71666664
-      value: {fileID: 21300000, guid: d319b916784c63b4ca73b2dbaa891780, type: 3}
+      value: {fileID: 21300000, guid: 0377798597b3e4941bf53f329892fe46, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300000, guid: 98047902c2090aa42944bc9bf00a721d, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300000, guid: bc045b5e2f43b5949abe5108df5f7203, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,15 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: a70852da92c0fe845b1c5cf074462661, type: 3}
-    - {fileID: 21300000, guid: df14a0ade34216a44951d4249717dace, type: 3}
-    - {fileID: 21300000, guid: d319b916784c63b4ca73b2dbaa891780, type: 3}
+    - {fileID: 21300000, guid: 0377798597b3e4941bf53f329892fe46, type: 3}
+    - {fileID: 21300000, guid: 98047902c2090aa42944bc9bf00a721d, type: 3}
+    - {fileID: 21300000, guid: bc045b5e2f43b5949abe5108df5f7203, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.7333333
+    m_StopTime: 0.13333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
