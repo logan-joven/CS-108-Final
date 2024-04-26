@@ -33,13 +33,22 @@ public class RangedEnemyHead: MonoBehaviour{
         transform.up = direction;
     
          // If Shot is not on Cooldown and Target is Close Enough to Shoot
-        if(shotCooldown <= 0 && Vector2.Distance(target.position, transform.position) <= distanceToShoot){
-            Instantiate(EnemyBullet, transform.position, transform.rotation);
-            shotCooldown = startShotCooldown;
+        if(shotCooldown <= 0 && Vector2.Distance(target.position, transform.position) <= distanceToShoot){          
             animator.SetFloat("SetFire",1);
+            StartCoroutine(Shoot());
         } else{
             shotCooldown -= Time.deltaTime;
             animator.SetFloat("SetFire", 0);
         }
+    }
+
+    IEnumerator Shoot(){
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        if(shotCooldown <= 0 && Vector2.Distance(target.position, transform.position) <= distanceToShoot){
+            Instantiate(EnemyBullet, transform.position, transform.rotation);
+            shotCooldown = startShotCooldown;
+        }
+        // Instantiate(EnemyBullet, transform.position, transform.rotation);
+        // shotCooldown = startShotCooldown;
     }
 }
