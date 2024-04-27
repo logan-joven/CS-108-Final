@@ -12,22 +12,12 @@ public class PlayerTopDown : MonoBehaviour
     Vector2 movementInput;
     public float rotationSpeed = 100f;
 
-<<<<<<< Updated upstream
-    // Bullet Variables
-    float fireGun;
-    bool shotCooldown;
-    public float bulletFireRate = 1.5f;
-    [SerializeField] GameObject bulletPrefab; 
-    Vector2 shotDir = Vector2.right; // Sets the direction to fire bullet
-
     // Animator
     public Animator animator;
 
     // Health Variables
-=======
     [Space(10)]
     [Header("Health Variables")]
->>>>>>> Stashed changes
     bool healthCooldown;
     public int health = 3;
     public float healthDamageCooldown = 1.5f;
@@ -62,7 +52,6 @@ public class PlayerTopDown : MonoBehaviour
     }
 
 
-
     private void FixedUpdate()
     {
         // movement for wasd arrows and joystick1 - Fire1 is Space & A button
@@ -71,31 +60,13 @@ public class PlayerTopDown : MonoBehaviour
 
         rb.velocity = (Vector2)transform.up * maxSpeed * movementInput.y * Time.fixedDeltaTime;
         rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementInput.x * rotationSpeed * Time.fixedDeltaTime));
-<<<<<<< Updated upstream
         
-        if(Vector2.Distance(rb.velocity, transform.position) > 0){
-            animator.SetFloat("Speed",1);
-        } 
-        else{
-            animator.SetFloat("Speed",-1);
-        }
-        
-
-    }
-
-
-    IEnumerator FireShot1()
-    {
-        shotCooldown = true;
-        GameObject prefab = Instantiate(bulletPrefab);
-        prefab.transform.position = transform.position;
-        prefab.GetComponent<bullet>().moveDirection = shotDir;
-        yield return new WaitForSeconds(bulletFireRate);
-
-        shotCooldown = false;
-
-=======
->>>>>>> Stashed changes
+        //if(Vector2.Distance(rb.velocity, transform.position) > 0){
+        //    animator.SetFloat("Speed",1);
+        //} 
+        //else{
+        //    animator.SetFloat("Speed",-1);
+        //}
     }
 
     IEnumerator HealthCoolDown(int enemDamage)
