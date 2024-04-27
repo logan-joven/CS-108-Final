@@ -61,12 +61,12 @@ public class PlayerTopDown : MonoBehaviour
         rb.velocity = (Vector2)transform.up * maxSpeed * movementInput.y * Time.fixedDeltaTime;
         rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementInput.x * rotationSpeed * Time.fixedDeltaTime));
         
-        //if(Vector2.Distance(rb.velocity, transform.position) > 0){
-        //    animator.SetFloat("Speed",1);
-        //} 
-        //else{
-        //    animator.SetFloat("Speed",-1);
-        //}
+        if(GetComponent<Rigidbody2D>().velocity != Vector2.zero){
+           animator.SetFloat("Speed",1);
+        } 
+        else{
+           animator.SetFloat("Speed",-1);
+        }
     }
 
     IEnumerator HealthCoolDown(int enemDamage)

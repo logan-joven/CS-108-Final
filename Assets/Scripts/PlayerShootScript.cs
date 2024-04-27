@@ -10,6 +10,7 @@ public class PlayerShootScript : MonoBehaviour
 
     public Camera mainCamera;
     public Transform turretParent;
+    public Animator animator;
 
     public float turretRotationSpeed = 150;
 
@@ -33,6 +34,10 @@ public class PlayerShootScript : MonoBehaviour
         if (fireGun != 0 && !shotCooldown)
         {
             StartCoroutine(FireShot1());
+            animator.SetFloat("SetFire", 1);
+        } 
+        else{
+            animator.SetFloat("SetFire", -1);
         }
     }
 
@@ -54,7 +59,6 @@ public class PlayerShootScript : MonoBehaviour
         shotCooldown = true;
         Instantiate(bulletPrefab, transform.position, transform.rotation);
         yield return new WaitForSeconds(bulletFireRate);
-
         shotCooldown = false;
 
     }
