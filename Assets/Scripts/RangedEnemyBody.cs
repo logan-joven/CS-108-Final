@@ -41,14 +41,12 @@ public class RangedEnemyBody: MonoBehaviour
             // If player far away from the enemy, the enemy move towards player
             if(Vector2.Distance(target.position, transform.position) >= distanceToStop){
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                animator.SetFloat("Speed", 1);
-            }
-            // If player is close stop moving
-            if(Vector2.Distance(target.position, transform.position) <= distanceToStop){
-                //Moving Backwards
-                // transform.position = Vector2.MoveTowards(transform.position, target.position, -1 * speed * Time.deltaTime);
+                animator.SetFloat("Speed",1);
+            } 
+            else{
                 animator.SetFloat("Speed", -1);
             }
+            
         }
             
 

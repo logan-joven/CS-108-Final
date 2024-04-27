@@ -5,9 +5,8 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
 
-    public Vector2 moveDirection;
     [Space(10)]
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     [SerializeField] float deathTime = 2.5f;
     public int damage = 1;
 
@@ -18,7 +17,8 @@ public class bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        // Makes the Bullet Move
+        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
