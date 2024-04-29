@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public int health = 3;
     public float speed = 3;
     public int damage = 1;
-    private float distanceToDetect = 7f;
+    public float distanceToDetect = 7f;
     public Animator animator;
 
 
