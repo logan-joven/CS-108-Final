@@ -41,7 +41,7 @@ public class PlayerTopDown : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Player Dead");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Title");
         }
 
         // test methods, delete later
