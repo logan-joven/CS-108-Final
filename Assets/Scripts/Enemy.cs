@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int damage = 1;
     public float distanceToDetect = 7f;
     public Animator animator;
+    public Animator explode;
 
 
     Transform target;
@@ -21,7 +22,10 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(health <= 0) Destroy(this.gameObject);
+        if(health <= 0){
+            explode.SetFloat("Explode", 1);
+            StartCoroutine(Explode());
+        } 
 
         if(Vector2.Distance(target.position, transform.position) < distanceToDetect){
             // Direction for Enemy to Look at Player
@@ -38,6 +42,10 @@ public class Enemy : MonoBehaviour
         
     }
 
+    IEnumerator Explode(){
+        yield return new WaitForSeconds(explode.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(this.gameObject);
+    }
 
 
 }

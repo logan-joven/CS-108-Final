@@ -14,6 +14,7 @@ public class PlayerTopDown : MonoBehaviour
 
     // Animator
     public Animator animator;
+    public Animator explode;
 
     // Health Variables
     [Space(10)]
@@ -40,8 +41,8 @@ public class PlayerTopDown : MonoBehaviour
         // Check if player is dead
         if (health <= 0)
         {
-            Debug.Log("Player Dead");
-            SceneManager.LoadScene("Title");
+            explode.SetFloat("Explode", 1);
+            StartCoroutine(Death());
         }
 
         // test methods, delete later
@@ -77,6 +78,12 @@ public class PlayerTopDown : MonoBehaviour
         healthCooldown = false;
     }
 
+    IEnumerator Death(){
+        yield return new WaitForSeconds(explode.GetCurrentAnimatorStateInfo(0).length);
+        Debug.Log("Player Dead");
+        SceneManager.LoadScene("Title");
+    }
+
     // Upon Colliding w/ an Melee Enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -85,5 +92,6 @@ public class PlayerTopDown : MonoBehaviour
             StartCoroutine(HealthCoolDown(collision.collider.GetComponent<Enemy>().damage));
         }
     }
+
 }
 

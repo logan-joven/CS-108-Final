@@ -16,6 +16,8 @@ public class RangedEnemyBody: MonoBehaviour
     public float distanceToDetect = 7f;
     // Animator
     public Animator animator;
+    // Explode Animator
+    public Animator explode;
 
     // Target
     Transform target;
@@ -29,7 +31,10 @@ public class RangedEnemyBody: MonoBehaviour
     private void FixedUpdate()
     {
         // If Enemy is out of Health, Destroy this Object
-        if(health <= 0) Destroy(this.gameObject);
+        if(health <= 0){
+            explode.SetFloat("Explode", 1);
+            StartCoroutine(Explode());
+        } 
         
         // If within distance to detect
         if(Vector2.Distance(target.position, transform.position) < distanceToDetect){
@@ -48,7 +53,10 @@ public class RangedEnemyBody: MonoBehaviour
             }
             
         }
-            
 
+    }
+    IEnumerator Explode(){
+        yield return new WaitForSeconds(explode.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(this.gameObject);
     }
 }

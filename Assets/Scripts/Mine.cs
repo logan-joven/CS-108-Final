@@ -8,15 +8,21 @@ public class Mine: MonoBehaviour
     public Animator animator;
 
     private void OnTriggerEnter2D(Collider2D collision){
-        if (!collision.CompareTag("Enemy")){
+        if (!collision.CompareTag("Bullet")){
             // If it was the Player itself, damage the player
             if(collision.GetComponent<PlayerTopDown>())
             {
                 collision.GetComponent<PlayerTopDown>().health -= damage;
             }
+            if(collision.GetComponent<RangedEnemyBody>()){
+                collision.GetComponent<RangedEnemyBody>().health -= damage;
+            }
+            if(collision.GetComponent<Enemy>()){
+                collision.GetComponent<Enemy>().health -= damage;
+            }
             animator.SetFloat("Contact", 1);
-            StartCoroutine(Explode());
-        }
+        StartCoroutine(Explode());
+        }       
     }
     IEnumerator Explode(){
          // Wait for the duration of the animation
