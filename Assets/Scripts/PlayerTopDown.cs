@@ -20,7 +20,7 @@ public class PlayerTopDown : MonoBehaviour
     [Space(10)]
     [Header("Health Variables")]
     bool healthCooldown;
-    public int health = 3;
+    public int health;
     public float healthDamageCooldown = 1.5f;
 
     private void Awake()
@@ -30,10 +30,10 @@ public class PlayerTopDown : MonoBehaviour
 
     private void Start()
     {
-        //if (health <= 0)
-        //    health = 3;
-        //else
-        //    health = StaticData.Health;
+        if (health <= 0)
+            health = 3;
+        else
+            health = StaticData.Health;
     }
 
     private void Update()
@@ -44,12 +44,6 @@ public class PlayerTopDown : MonoBehaviour
             explode.SetFloat("Explode", 1);
             StartCoroutine(Death());
         }
-
-        // test methods, delete later
-        if (Input.GetKeyDown(KeyCode.Z))
-            StaticData.test++;
-        if (Input.GetKeyDown(KeyCode.X))
-            Debug.Log(StaticData.test);
     }
 
 
@@ -78,10 +72,18 @@ public class PlayerTopDown : MonoBehaviour
         healthCooldown = false;
     }
 
+    IEnumerator BuffCooldown(int seconds)
+    {
+        GetComponent<PlayerShootScript>().bulletFireRate = 3f;
+        yield return new WaitForSeconds(seconds);
+        GetComponent<PlayerShootScript>().bulletFireRate = 1.5f;
+    }
+
     IEnumerator Death(){
         yield return new WaitForSeconds(explode.GetCurrentAnimatorStateInfo(0).length);
-        Debug.Log("Player Dead");
-        SceneManager.LoadScene("Title");
+        StaticData.Health = 3;
+        StaticData.currentLevel = SceneManager.GetActiveScene().name.ToString();
+        SceneManager.LoadScene("Game Over");
     }
 
     // Upon Colliding w/ an Melee Enemy

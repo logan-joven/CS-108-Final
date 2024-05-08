@@ -59,7 +59,7 @@ public class BossEnemyHead: MonoBehaviour{
     IEnumerator Shoot1(){
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         if(shotCooldown <= 0 && Vector2.Distance(target.position, transform.position) <= distanceToShoot){
-            GetComponent<AudioSource>().PlayOneShot(shot1, 0.1f);
+            GetComponent<AudioSource>().PlayOneShot(shot1, 0.15f);
             Instantiate(EnemyBullet1, transform.position, transform.rotation);
             shotCooldown = startShotCooldown;
         }
@@ -69,7 +69,7 @@ public class BossEnemyHead: MonoBehaviour{
 
     IEnumerator Shoot2(){
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        GetComponent<AudioSource>().PlayOneShot(shot2, 0.1f);
+        GetComponent<AudioSource>().PlayOneShot(shot2, 0.15f);
         Instantiate(EnemyBullet2, transform.position, transform.rotation);
         shotCooldown = startShotCooldown;
     }

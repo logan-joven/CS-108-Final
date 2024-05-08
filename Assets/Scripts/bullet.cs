@@ -25,8 +25,6 @@ public class bullet : MonoBehaviour
     {
         if(!collision.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
-
             // For Melee Enemies
             if(collision.GetComponent<Enemy>())
             {
@@ -42,11 +40,8 @@ public class bullet : MonoBehaviour
             {
                  collision.GetComponent<RangedEnemyBody>().health -= damage;
             }
+            Destroy(this.gameObject);
         }
                     
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision){
-        Destroy(this.gameObject);
     }
 }

@@ -32,22 +32,24 @@ public class RangedEnemyBody: MonoBehaviour
 
     private void FixedUpdate()
     { 
-        // If within distance to detect
-        if(Vector2.Distance(target.position, transform.position) < distanceToDetect){
-            // Direction for Enemy to Look at Player, Dividing by 5 makes it rotate slower than head
-            Vector2 direction = new Vector2(target.position.x - transform.position.x /5, target.position.y - transform.position.y);
-            // Actually Enables Enemy to Look at player
-            transform.up = direction;
+        if (!dead)
+            {
+            // If within distance to detect
+            if(Vector2.Distance(target.position, transform.position) < distanceToDetect){
+                // Direction for Enemy to Look at Player, Dividing by 5 makes it rotate slower than head
+                Vector2 direction = new Vector2(target.position.x - transform.position.x /5, target.position.y - transform.position.y);
+                // Actually Enables Enemy to Look at player
+                transform.up = direction;
 
-            // If player far away from the enemy, the enemy move towards player
-            if(Vector2.Distance(target.position, transform.position) >= distanceToStop){
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                animator.SetFloat("Speed",1);
-            } 
-            else{
-                animator.SetFloat("Speed", -1);
+                // If player far away from the enemy, the enemy move towards player
+                if(Vector2.Distance(target.position, transform.position) >= distanceToStop){
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                    animator.SetFloat("Speed",1);
+                } 
+                else{
+                    animator.SetFloat("Speed", -1);
+                }  
             }
-            
         }
     }
 

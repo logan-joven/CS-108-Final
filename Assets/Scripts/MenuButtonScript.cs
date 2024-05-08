@@ -9,9 +9,26 @@ public class MenuButtonScript : MonoBehaviour
     {
     }
 
-    public void Clicked()
+    public void StartNewGameClicked()
     {
-        SceneManager.LoadScene("Draft Scene"); // load Level One when button is pressed
+        StaticData.Health = 3;
+        SceneManager.LoadScene("Level 1"); // load Level One when button is pressed
     }
 
+    public void StartTutorialClicked()
+    {
+        StaticData.Health = 3;
+        SceneManager.LoadScene("Draft Scene"); // load Tutorial when button is pressed
+    }
+
+    public void RetryLevelClicked()
+    {
+        StaticData.Health = 3;
+        SceneManager.LoadScene(StaticData.currentLevel);
+    }
+
+    public void TitleLevelClicked()
+    {
+        SceneManager.LoadScene("Title");
+    }
 }

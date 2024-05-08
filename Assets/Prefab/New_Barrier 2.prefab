@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3268504265086164947}
   - component: {fileID: 1935046001962516768}
   - component: {fileID: 7993700739186114481}
+  - component: {fileID: -5564450490671451534}
   m_Layer: 0
   m_Name: New_Barrier 2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,3 +144,30 @@ PolygonCollider2D:
       - {x: 1.2876947, y: -0.5646424}
       - {x: 1.1430846, y: -0.50155777}
   m_UseDelaunayMesh: 0
+--- !u!50 &-5564450490671451534
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7711371061888966434}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6965812762040733312}
   - component: {fileID: 4066650638871696779}
   - component: {fileID: 9207892957985384107}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Explosion Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,9 +121,9 @@ GameObject:
   - component: {fileID: 6774725178617875277}
   - component: {fileID: 122024346952854193}
   - component: {fileID: 9003602357240319961}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Melee Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

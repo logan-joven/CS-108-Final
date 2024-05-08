@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6449567145965457707}
   - component: {fileID: 3728410477137168499}
   - component: {fileID: 6985480336234768422}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1022830294927490475}
   - component: {fileID: 3540241405012680825}
   - component: {fileID: -2523380213561561232}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ranged Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 6315853287329222077}
   - component: {fileID: 1108527499282732726}
   - component: {fileID: 5243565502338819478}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Explosion Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 3994889429236552405}
   - component: {fileID: 217393207181345665}
   - component: {fileID: 7562938548174184059}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Thread1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 2690668473989864168}
   - component: {fileID: 440844409184336420}
   - component: {fileID: 1746204041445672355}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RangedEnemyHead
   m_TagString: Enemy
   m_Icon: {fileID: 0}

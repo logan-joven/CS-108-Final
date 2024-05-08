@@ -5,5 +5,5 @@ using UnityEngine;
 public class StaticData : MonoBehaviour
 {
     public static int Health;
-    public static int test;
+    public static string currentLevel;
 }

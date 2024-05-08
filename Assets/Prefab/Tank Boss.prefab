@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5997099680845547076}
   - component: {fileID: 4885906187904728237}
   - component: {fileID: 1407284568681124745}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Boss Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 7746012417585809016}
   - component: {fileID: 7672146693086430710}
   - component: {fileID: 5989248365757046261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tank Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 3349758436187784621}
   - component: {fileID: 740500099694025546}
   - component: {fileID: 4651657390391480242}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Boss Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 8865880667535540110}
   - component: {fileID: 1871335098353677645}
   - component: {fileID: 4994797713516304421}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Boss Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 8089515495228035617}
   - component: {fileID: 5869310829268570421}
   - component: {fileID: 4836285390944844136}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Boss Tread 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

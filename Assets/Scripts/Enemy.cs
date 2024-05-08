@@ -27,20 +27,24 @@ public class Enemy : MonoBehaviour
         {
             explode.SetFloat("Explode", 1);
             StartCoroutine(Explode());
-        } 
+        }
 
-        if(Vector2.Distance(target.position, transform.position) < distanceToDetect){
-            // Direction for Enemy to Look at Player
-            Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
-            // Actually Enables Enemy to Look at player
-            transform.up = direction;
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            animator.SetFloat("Speed",1);
+        if (!dead)
+        {
+            if (Vector2.Distance(target.position, transform.position) < distanceToDetect)
+            {
+                // Direction for Enemy to Look at Player
+                Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+                // Actually Enables Enemy to Look at player
+                transform.up = direction;
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                animator.SetFloat("Speed", 1);
+            }
+            else
+            {
+                animator.SetFloat("Speed", -1);
+            }
         }
-        else{
-            animator.SetFloat("Speed",-1);
-        }
-        
         
     }
 
