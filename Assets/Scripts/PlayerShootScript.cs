@@ -58,6 +58,7 @@ public class PlayerShootScript : MonoBehaviour
     {
         shotCooldown = true;
         Instantiate(bulletPrefab, transform.position, transform.rotation);
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(bulletFireRate);
         shotCooldown = false;
 

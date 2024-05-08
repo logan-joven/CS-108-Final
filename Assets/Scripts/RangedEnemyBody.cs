@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RangedEnemyBody: MonoBehaviour
 {
     // Health of the body
     public int health = 2;
+    bool dead = false;
     // Speed of the Tank
     public float speed = 3;
     // Distance of Where to stop
@@ -29,13 +31,7 @@ public class RangedEnemyBody: MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        // If Enemy is out of Health, Destroy this Object
-        if(health <= 0){
-            explode.SetFloat("Explode", 1);
-            StartCoroutine(Explode());
-        } 
-        
+    { 
         // If within distance to detect
         if(Vector2.Distance(target.position, transform.position) < distanceToDetect){
             // Direction for Enemy to Look at Player, Dividing by 5 makes it rotate slower than head
@@ -53,9 +49,21 @@ public class RangedEnemyBody: MonoBehaviour
             }
             
         }
-
     }
+
+    private void Update()
+    {
+        // If Enemy is out of Health, Destroy this Object
+        if (health <= 0 && !dead)
+        {
+            explode.SetFloat("Explode", 1);
+            StartCoroutine(Explode());
+        }
+    }
+
     IEnumerator Explode(){
+        dead = true;
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(explode.GetCurrentAnimatorStateInfo(0).length);
         Destroy(this.gameObject);
     }

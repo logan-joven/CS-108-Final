@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Animator explode;
 
+    bool dead = false;
 
     Transform target;
 
@@ -22,7 +23,8 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(health <= 0){
+        if(health <= 0 && !dead)
+        {
             explode.SetFloat("Explode", 1);
             StartCoroutine(Explode());
         } 
@@ -42,7 +44,10 @@ public class Enemy : MonoBehaviour
         
     }
 
-    IEnumerator Explode(){
+    IEnumerator Explode()
+    {
+        dead = true;
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(explode.GetCurrentAnimatorStateInfo(0).length);
         Destroy(this.gameObject);
     }

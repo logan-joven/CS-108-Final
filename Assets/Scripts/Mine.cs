@@ -25,7 +25,8 @@ public class Mine: MonoBehaviour
         }       
     }
     IEnumerator Explode(){
-         // Wait for the duration of the animation
+        // Wait for the duration of the animation
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         Destroy(this.gameObject);
     }

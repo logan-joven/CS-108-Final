@@ -46,6 +46,7 @@ public class RangedEnemyHead: MonoBehaviour{
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         if(shotCooldown <= 0 && Vector2.Distance(target.position, transform.position) <= distanceToShoot){
             Instantiate(EnemyBullet, transform.position, transform.rotation);
+            GetComponent<AudioSource>().Play();
             shotCooldown = startShotCooldown;
         }
         // Instantiate(EnemyBullet, transform.position, transform.rotation);
