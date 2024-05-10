@@ -236,5 +236,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  moveSpeed: 3
+  moveSpeed: 5
   deathTime: 4
